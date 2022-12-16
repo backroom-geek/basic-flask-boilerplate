@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Boilerplate AP App",
+    "version": "1.0.0",
+    "title": "Boilerplate API APP"
+  },
+  "contact": {
+    "name": "backroom Geek",
+    "email": "adom2989@backroomgeek.dev"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["Get All users"],
+        "summary": "Returns All Users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/users"
+            }
+          }
+        }
+      }
+    },
+    "/user/{first_name}": {
+      "parameters": [
+        {
+          "name": "first_name",
+          "in": "path",
+          "required": true,
+          "description": "first_name",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Get Single users"],
+        "summary": "Returns Single User",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/user"
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "users": {
+        "type": "array"
+      },
+      "user": {
+        "type": "object"
+      }
+    }
+  }
+}
