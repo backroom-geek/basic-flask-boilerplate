@@ -1,0 +1,12 @@
+version: "2.8"
+services:
+  my-boilerplate-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - APP_PORT
+    env_file:
+      - ../.env_prod
+    ports:
+      - "5123"

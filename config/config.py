@@ -1,5 +1,6 @@
 from logging import root
 import util.constants as const
+import os
 
 
 class Config(object):
@@ -11,7 +12,7 @@ class Config(object):
 
 class ProductionConfig(Config):
     """Uses production database server."""
-    PORT = 8080
+    PORT = os.environ.get("APP_PORT", 8080)
 
 
 class DevelopmentConfig(Config):
